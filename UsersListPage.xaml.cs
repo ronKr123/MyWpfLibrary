@@ -119,5 +119,15 @@ namespace WpfLibrary
                 selectedUser = null;
             }
         }
+
+        private async void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            CityList cities = await apiService.SelectAllCities();
+
+            Frame frame = FrameHolder.MangerFrame;
+            frame.Navigate(new userPage(cities));
+
+        }
+
     }
 }

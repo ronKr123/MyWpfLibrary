@@ -105,6 +105,26 @@ namespace WpfLibrary
             }
         }
 
+        private void myListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (myListView.SelectedItem != null)
+            {
+                selectedCity = myListView.SelectedItem as City;
+            }
+            else
+            {
+                selectedCity = null;
+            }
+        }
+
+        private async void AddCity_Click(object sender, RoutedEventArgs e)
+        {
+            CityList cities = await apiService.SelectAllCities();
+
+            Frame frame = FrameHolder.MangerFrame;
+            frame.Navigate(new AddCityPage(cities));
+
+        }
 
 
     }

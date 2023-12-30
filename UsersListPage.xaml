@@ -34,7 +34,7 @@
                 <ContextMenu>
                     <MenuItem Header="עדכון משתמש" Click="UpdateMenuItem_Click"/>
                     <MenuItem Header="מחיקת משתמש" Click="DeleteMenuItem_Click"/>
-
+                    <MenuItem Header="הוספת משתמש חדש" Click="AddUser_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>

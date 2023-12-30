@@ -11,10 +11,10 @@
     <Grid Background="#FFFFFFDA">
         <TextBlock Text="רשימת הערים" FontSize="36" TextAlignment="Center" Margin="0,0,0,397" FontWeight="Bold" />
 
-        <ListView x:Name="myListView" Margin="240,58,240,0"  PreviewMouseRightButtonDown="ListView_PreviewMouseRightButtonDown" PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"  >
+        <ListView x:Name="myListView" Margin="240,58,240,0"  PreviewMouseRightButtonDown="ListView_PreviewMouseRightButtonDown" PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"   SelectionChanged="myListView_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="שם העיר" DisplayMemberBinding="{Binding CityName}" />
+                    <GridViewColumn Header="שם העיר" DisplayMemberBinding="{Binding CityName}" Width="300"/>
                     <!-- Add other columns as needed -->
                 </GridView>
             </ListView.View>
@@ -23,7 +23,7 @@
                 <ContextMenu>
                     <MenuItem Header="עדכון העיר" Click="UpdateMenuItem_Click"/>
                     <MenuItem Header="מחיקת העיר" Click="DeleteMenuItem_Click"/>
-
+                    <MenuItem Header="הוספת עיר חדשה" Click="AddCity_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>

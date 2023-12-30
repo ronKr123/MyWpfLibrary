@@ -12,6 +12,8 @@
     <None Remove="Images\addingNewBookIcon.png" />
     <None Remove="Images\audiouFilesIcon.png" />
     <None Remove="Images\booksIcon.png" />
+    <None Remove="Images\citiesIcon.png" />
+    <None Remove="Images\genresIcon.png" />
     <None Remove="Images\heart-outline-filled.png" />
     <None Remove="Images\heartImgNotFill.png" />
     <None Remove="Images\houseIcon.png" />
@@ -20,9 +22,11 @@
     <None Remove="Images\imgLogin2.jpg" />
     <None Remove="Images\imgShelfBook.png" />
     <None Remove="Images\lendingBooksIcon.png" />
+    <None Remove="Images\musicBooksIcon.png" />
     <None Remove="Images\passwordIcon.png" />
     <None Remove="Images\useresIcon.png" />
     <None Remove="Images\userNameIcon.png" />
+    <None Remove="Images\writersIcon.png" />
     <None Remove="imgLogin.jpg" />
   </ItemGroup>
 
@@ -71,6 +75,8 @@
     <Resource Include="Images\addingNewBookIcon.png" />
     <Resource Include="Images\audiouFilesIcon.png" />
     <Resource Include="Images\booksIcon.png" />
+    <Resource Include="Images\citiesIcon.png" />
+    <Resource Include="Images\genresIcon.png" />
     <Resource Include="Images\heart-outline-filled.png" />
     <Resource Include="Images\heartImgNotFill.png" />
     <Resource Include="Images\houseIcon.png" />
@@ -80,9 +86,11 @@
     <Resource Include="Images\imgLogin2.jpg" />
     <Resource Include="Images\imgShelfBook.png" />
     <Resource Include="Images\lendingBooksIcon.png" />
+    <Resource Include="Images\musicBooksIcon.png" />
     <Resource Include="Images\passwordIcon.png" />
     <Resource Include="Images\useresIcon.png" />
     <Resource Include="Images\userNameIcon.png" />
+    <Resource Include="Images\writersIcon.png" />
   </ItemGroup>
 
 </Project>

@@ -27,11 +27,11 @@
             <HamburgerMenu:HamburgerMenuItem Icon="Images/useresIcon.png" Text="כל המשתמשים" MouseDoubleClick="ToAllUseresPage" />
             <HamburgerMenu:HamburgerMenuItem Icon="Images/addingNewBookIcon.png" Text="הוספת ספר חדש" MouseDoubleClick="ToAddNewBookPage" />
             <HamburgerMenu:HamburgerMenuItem Icon="Images/audiouFilesIcon.png" Text="הוספת ספר דיגיטלי חדש" MouseDoubleClick="ToAddingDigitalBookPage" />
-            <HamburgerMenu:HamburgerMenuItem Icon="Images/heart-outline-filled.png" Text="הוספת עיר" MouseDoubleClick="ToAddNewCityPage" />
-            <HamburgerMenu:HamburgerMenuItem Icon="Images/audiouFilesIcon.png" Text="הוספת ז'אנר" MouseDoubleClick="ToAddNewGenrePage" />
-            <HamburgerMenu:HamburgerMenuItem Icon="Images/audiouFilesIcon.png" Text="הוספת כותב חדש" MouseDoubleClick="ToAddNewWriter" />
-            <HamburgerMenu:HamburgerMenuItem Icon="Images/audiouFilesIcon.png" Text="הוספת משתמש חדש" MouseDoubleClick="ToAddNewUserPage" />
-            
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/citiesIcon.png" Text="רשימת הערים" MouseDoubleClick="ToAllCitiesPage" />
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/genresIcon.png" Text="רשימת הז'אנרים" MouseDoubleClick="ToAllGenresPage" />
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/writersIcon.png" Text="רשימת הסופרים" MouseDoubleClick="ToAllWritersPage" />
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/booksIcon.png" Text="רשימת הספרים" MouseDoubleClick="ToAllBooksPage" />
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/musicBooksIcon.png" Text="רשימת הספרים הדיגיטליים" MouseDoubleClick="ToAllAudioBooksPage" />
         </HamburgerMenu:HamburgerMenu>
         
         

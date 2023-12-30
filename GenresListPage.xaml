@@ -11,19 +11,18 @@
     <Grid Background="#FFDFFFDC">
         <TextBlock Text="רשימת הז'אנרים" FontSize="36" TextAlignment="Center" Margin="0,0,0,397" FontWeight="Bold" />
 
-        <ListView x:Name="myListView" Margin="240,58,240,0"  PreviewMouseRightButtonDown="ListView_PreviewMouseRightButtonDown" PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"  >
+        <ListView x:Name="myListView" Margin="240,58,240,0"  PreviewMouseRightButtonDown="ListView_PreviewMouseRightButtonDown" PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp" SelectionChanged="myListView_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <!--<GridViewColumn Header="שם הז'אנר" DisplayMemberBinding="{Binding GenreName}" />-->
-                    <!-- Add other columns as needed -->
+                    <GridViewColumn Header="שם הז'אנר" DisplayMemberBinding="{Binding GenreName}" Width="300"/>
                 </GridView>
             </ListView.View>
 
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="עדכון העיר" Click="UpdateMenuItem_Click"/>
-                    <MenuItem Header="מחיקת העיר" Click="DeleteMenuItem_Click"/>
-
+                    <MenuItem Header="עדכון הז'אנר" Click="UpdateMenuItem_Click"/>
+                    <MenuItem Header="מחיקת הז'אנר" Click="DeleteMenuItem_Click"/>
+                    <MenuItem Header="הוספת ז'אנר חדש" Click="AddGenre_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>

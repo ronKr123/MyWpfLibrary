@@ -61,38 +61,37 @@ namespace WpfLibrary
             this.frameManger.Navigate(new AddNewDigitalBookPage());
         }
 
-
-        private async void ToAddNewCityPage(object sender, MouseButtonEventArgs e)
+        private void ToAllCitiesPage(object sender, MouseButtonEventArgs e)
         {
-            CityList cities = await api.SelectAllCities();
-            this.frameManger.Navigate(new AddCityPage(cities));
+            this.frameManger.Navigate(new CityListPage());
 
         }
 
-
-        private async void ToAddNewGenrePage(object sender, MouseButtonEventArgs e)
+        private void ToAllGenresPage(object sender, MouseButtonEventArgs e)
         {
-            GenreList genres = await api.SelectAllGeneres();
-            this.frameManger.Navigate(new AddGenrePage(genres));
+            this.frameManger.Navigate(new GenresListPage());
 
         }
 
-        private async void ToAddNewWriter(object sender, MouseButtonEventArgs e)
+        private void ToAllWritersPage(object sender, MouseButtonEventArgs e)
         {
-            GenreList genres = await api.SelectAllGeneres();
-            this.frameManger.Navigate(new InsertNewWriter(genres));
+            this.frameManger.Navigate(new WritesList());
 
         }
 
-        private async void ToAddNewUserPage(object sender, MouseButtonEventArgs e)
+        private async void ToAllBooksPage(object sender, MouseButtonEventArgs e)
         {
-            CityList cities = await api.SelectAllCities();
-            userPage page = new userPage(cities);
-            page.ToLoginPage.Visibility = Visibility.Collapsed;
-            this.frameManger.Navigate(page);
+            BooksList books = await api.SelectAllBooks();
+            this.frameManger.Navigate(new PageListBooks(books));
 
         }
 
+        private async void ToAllAudioBooksPage(object sender, MouseButtonEventArgs e)
+        {
+            DigitalBooksList digitalBooks = await api.SelectAllDigitalBooks();
+            this.frameManger.Navigate(new PageDigitalBooks(digitalBooks));
+
+        }
 
     }
 }
