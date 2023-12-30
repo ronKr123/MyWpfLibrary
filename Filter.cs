@@ -24,43 +24,43 @@ namespace WpfLibrary
         {
 
             int codeSwich = 0;
-            if(bookNameTxt != null && genreBookCode != null && writerBookCode != null)
+            if(bookNameTxt != null && genreBookCode != 0 && writerBookCode != 0)
             {
                 codeSwich = 1;
             }
             else
             {
-                if (bookNameTxt != null && genreBookCode != null)
+                if (bookNameTxt != null && genreBookCode != 0 && writerBookCode == 0)
                 {
                     codeSwich = 2;
                 }
                 else
                 {
-                    if(genreBookCode != null && writerBookCode != null)
+                    if(genreBookCode != 0 && writerBookCode != 0 && bookNameTxt == null)
                     {
                         codeSwich = 3;
                     }
                     else
                     {
-                        if(writerBookCode != null && bookNameTxt != null)
+                        if(writerBookCode != 0 && bookNameTxt != null && genreBookCode == 0)
                         {
                             codeSwich = 4;
                         }
                         else
                         {
-                            if(bookNameTxt != null && genreBookCode == null && writerBookCode == null)
+                            if(bookNameTxt != null && genreBookCode == 0 && writerBookCode == 0)
                             {
                                 codeSwich = 5;
                             }
                             else
                             {
-                                if(bookNameTxt == null && genreBookCode != null && writerBookCode == null)
+                                if(bookNameTxt == null && genreBookCode != 0 && writerBookCode == 0)
                                 {
                                     codeSwich = 6;
                                 }
                                 else
                                 {
-                                    if(bookNameTxt == null && genreBookCode == null && writerBookCode != null)
+                                    if(bookNameTxt == null && genreBookCode == 0 && writerBookCode != 0)
                                     {
                                         codeSwich = 7;
                                     }
@@ -87,7 +87,7 @@ namespace WpfLibrary
                     return $"select * from bookTbl where bookName like '{BookNameTxt}%' and genreCode = {GenreBookCode}";
                     break;
                 case 3:
-                    return $"select * from bookTbl where genreCode = {GenreBookCode} and writerCode = {WriterBookCode}";
+                    return $"select * from bookTbl where genreCode = {GenreBookCode} and writerCode = {WriterBookCode} ";
                     break;
                 case 4:
                     return $"select * from bookTbl where bookName like '{BookNameTxt}%' and writerCode = {WriterBookCode}";

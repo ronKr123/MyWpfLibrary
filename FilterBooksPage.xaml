@@ -21,13 +21,11 @@
             <TextBox x:Name="searchTextBox" Grid.Column="0" Margin="50,0,76,0" VerticalAlignment="Center" Height="38" Grid.ColumnSpan="2" TextChanged="searchTextBox_TextChanged" TextAlignment="Right" BorderThickness="3" BorderBrush="#FF89BBFF"/>
 
             <ComboBox x:Name="genreComboBox" Grid.Column="1" Margin="134,0,111,0" VerticalAlignment="Center" Height="38" Grid.ColumnSpan="2" >
-                <ComboBoxItem Content="Option 1"/>
-                <ComboBoxItem Content="Option 2"/>
+                
             </ComboBox>
 
             <ComboBox x:Name="writerComboBox" Grid.Column="2" Margin="0,0,330,0" VerticalAlignment="Center" Height="38" SelectionChanged="comboBox2_SelectionChanged" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="158">
-                <ComboBoxItem Content="Option A"/>
-                <ComboBoxItem Content="Option B"/>
+                
             </ComboBox>
 
             <Button x:Name="searchButton" Grid.Column="3" Content="חיפוש" VerticalAlignment="Center" Click="SearchButton_Click" Height="47" Margin="92,0,156,0" FontSize="30" BorderBrush="Black" Background="#FFC3DBFB">

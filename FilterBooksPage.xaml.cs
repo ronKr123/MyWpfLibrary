@@ -118,8 +118,10 @@ namespace WpfLibrary
 
         }
 
-        private void UpdateTheGrid(BooksList booksList)
+        private async void UpdateTheGrid(BooksList booksList)
         {
+            DigitalBooksList digitalBooks = await api.SelectAllDigitalBooks();
+
             RowDefinition gridRow;
             for (int i = 0; i < (booksList.Count / 2) + 1; i++)
             {
@@ -140,6 +142,9 @@ namespace WpfLibrary
 
             foreach (Books book in booksList)
             {
+                BookViewUC.BookParameter = book;
+                BookViewUC.DigitalBooksParameter = digitalBooks;
+
                 BookViewUC bookViewUC = new BookViewUC();
                 bookViewUC.Margin = new Thickness(7);
                 
