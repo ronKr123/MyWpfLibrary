@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\addingNewBookIcon.png" />
+    <None Remove="Images\audiouFilesIcon.png" />
+    <None Remove="Images\booksIcon.png" />
+    <None Remove="Images\heart-outline-filled.png" />
+    <None Remove="Images\heartImgNotFill.png" />
+    <None Remove="Images\houseIcon.png" />
+    <None Remove="Images\imgBac.jpg" />
+    <None Remove="Images\imgLogin.jpg" />
+    <None Remove="Images\imgLogin2.jpg" />
+    <None Remove="Images\imgShelfBook.png" />
+    <None Remove="Images\lendingBooksIcon.png" />
+    <None Remove="Images\passwordIcon.png" />
+    <None Remove="Images\useresIcon.png" />
+    <None Remove="Images\userNameIcon.png" />
+    <None Remove="imgLogin.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="Win32_TPMLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>61e207a5-827c-42e9-adfa-165c6a745ee4</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Win32_EncryptableVolumeLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>0249f559-489f-4977-a0ef-21352c5ad247</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HamburgerMenu" Version="0.1.0" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="Uno.UI" Version="5.0.48" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ApiLibraryService">
+      <HintPath>..\RonLibraryProject\ApiLibraryService\obj\Debug\net7.0\ApiLibraryService.dll</HintPath>
+    </Reference>
+    <Reference Include="Model">
+      <HintPath>..\RonLibraryProject\Model\obj\Debug\net7.0\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="ViewModel">
+      <HintPath>..\RonLibraryProject\ViewModel\obj\Debug\net7.0\ViewModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\addingNewBookIcon.png" />
+    <Resource Include="Images\audiouFilesIcon.png" />
+    <Resource Include="Images\booksIcon.png" />
+    <Resource Include="Images\heart-outline-filled.png" />
+    <Resource Include="Images\heartImgNotFill.png" />
+    <Resource Include="Images\houseIcon.png" />
+    <Resource Include="Images\imgBac.jpg" />
+    <Resource Include="Images\image.png" />
+    <Resource Include="Images\imgLogin.jpg" />
+    <Resource Include="Images\imgLogin2.jpg" />
+    <Resource Include="Images\imgShelfBook.png" />
+    <Resource Include="Images\lendingBooksIcon.png" />
+    <Resource Include="Images\passwordIcon.png" />
+    <Resource Include="Images\useresIcon.png" />
+    <Resource Include="Images\userNameIcon.png" />
+  </ItemGroup>
+
+</Project>

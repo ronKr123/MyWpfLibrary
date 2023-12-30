@@ -1,0 +1,56 @@
+﻿<Page x:Class="WpfLibrary.ScreenViewUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ScreenViewUserPage">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFEFE09A" Offset="0.526"/>
+                <GradientStop Color="#FFECC57F" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="401*"/>
+            <ColumnDefinition Width="225*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="94"/>
+            <RowDefinition Height="127"/>
+            <RowDefinition Height="95"/>
+            <RowDefinition Height="44"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock  x:Name="messageHelloUser" Margin="54,60,25,100" FontSize="48" TextAlignment="Right" FontWeight="Bold" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+
+        <TextBlock Text="ברוכים למערכת הספרייה שלי" Margin="158,10,134,12" FontSize="36" FontStyle="Italic" TextDecorations="Underline" Grid.ColumnSpan="4" TextAlignment="Center"  />
+        <Rectangle HorizontalAlignment="Left" Height="166" Margin="58,48,0,0" Stroke="Black" VerticalAlignment="Top" Width="318" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1"/>
+        <TextBlock Text=": ההשאלות שלי" FontSize="36" Margin="103,48,21,16" TextAlignment="Center" Foreground="#FF3A7FBF" Grid.Column="2" Grid.Row="1"/>
+        <TextBlock Text="" x:Name="myLendAndRet" FontSize="36" Margin="301,103,53,63" TextAlignment="Center" FontWeight="Bold" Foreground="#FF2D5CED" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"/>
+
+        <TextBlock Text="השאלות" FontSize="36" Margin="139,101,106,61" TextAlignment="Center" Foreground="#FF3A7FBF" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"/>
+        <Image x:Name="bookPicImgDb" Margin="400,1,20,8" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1" Grid.ColumnSpan="2" />
+
+        <Button x:Name="ToRegisterOrLoginPage" Content="יציאה" Margin="48,22,47,-33" FontSize="36" FontFamily="Sitka Heading" BorderThickness="3" Click="ToRegisterOrLoginPage_Click" Grid.Column="3" Grid.Row="3">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FFE68A8A" Offset="0.592"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Page>

@@ -1,0 +1,111 @@
+﻿<Page x:Class="WpfLibrary.PagePerson"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PagePerson">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFE8D7C3" Offset="0.561"/>
+                <GradientStop Color="#FFF3D287" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="73"/>
+            <RowDefinition Height="87"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="169"/>
+            <ColumnDefinition Width="139"/>
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="142"/>
+            <ColumnDefinition Width="50"/>
+
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="NamePage" FontSize="36" Margin="32,2,35,17" Text="NamePage" TextAlignment="Center" FontWeight="Bold" Grid.Row="0" TextDecorations="Underline" Grid.ColumnSpan="3" Grid.Column="1" />
+        <TextBlock Text=": שם פרטי" FontSize="22" Margin="0,19,-90,19" TextAlignment="Center"  Grid.Row="1" Grid.Column="4" />
+        <TextBlock Text=": שם משפחה" FontSize="22" Margin="79,20,-80,16" TextAlignment="Right" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="firstNameTxtBox"  FontSize="22" TextAlignment="Right" Margin="12,19,10,16" Background="#FFBBF1E4"  Foreground="#FF5F5C5C" BorderBrush="#FF708DE6" CaretBrush="#FF1F1F1F" BorderThickness="3" Grid.Column="3" Grid.Row="1" TextChanged="firstNameTxtBox_TextChanged"  />
+
+        <TextBox x:Name="lastNameTxtBox"   FontSize="20" TextAlignment="Right" Margin="12,15,10,21" Background="#FFBBF1E4"  Foreground="#FF5F5C5C" BorderBrush="#FF708DE6" CaretBrush="#FF1F1F1F" BorderThickness="3" Grid.Column="3" Grid.Row="2" />
+
+        <TextBlock Text=": תאריך לידה" FontSize="22" Margin="4,19,-80,28" TextAlignment="Right" Grid.Column="4" Grid.Row="3"/>
+        <DatePicker x:Name="datePicker" Grid.Row="3" Grid.Column="3" Margin="5,22,10,28" FontSize="16" />
+
+
+        <TextBlock x:Name="txtCity" Text=": עיר" FontSize="22" Margin="35,20,-55,20" TextAlignment="Center" Grid.Column="4" Grid.Row="4"/>
+        <ComboBox Text="comboBox" x:Name="comboBoxCity" Margin="17,20,46,10" BorderBrush="#FFBBF1E4" FontWeight="Bold" FontSize="22" OpacityMask="#FFFBFBFB" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" >
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FF8DD060" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <TextBlock x:Name="txtUserName" Text=": שם משתמש" FontSize="22" Margin="128,21,89,22" TextAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="userNameTxtBox"  FontSize="21" TextAlignment="Left" Margin="164,19,16,25" Background="#FFBBF1E4" TextChanged="TextBox_TextChanged" Foreground="#FF5F5C5C" BorderBrush="#FF708DE6" CaretBrush="#FF1F1F1F" BorderThickness="3" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  />
+        <TextBlock x:Name="txtPass" Text=": סיסמה" FontSize="22" Margin="29,79,89,43" TextAlignment="Center" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2"/>
+        <TextBox x:Name="passWordTxtBox"  FontSize="22" TextAlignment="Left" Margin="40,79,181,44" Background="#FFBBF1E4" TextChanged="TextBox_TextChanged" Foreground="#FF5F5C5C" BorderBrush="#FF708DE6" CaretBrush="#FF1F1F1F" BorderThickness="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <TextBlock x:Name="txtEmail" Text=": איימייל" FontSize="22" Margin="29,62,90,62" TextAlignment="Center" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"/>
+        <TextBox x:Name="emailTxtBox"  FontSize="22" TextAlignment="Left" Margin="40,60,181,62" Background="#FFBBF1E4" TextChanged="TextBox_TextChanged" Foreground="#FF5F5C5C" BorderBrush="#FF708DE6" CaretBrush="#FF1F1F1F" BorderThickness="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <TextBlock x:Name="txtPhoneNumber" Text=": מספר טלפון" FontSize="22" Margin="125,41,0,1" TextAlignment="Right" Grid.Row="3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="130" Grid.ColumnSpan="2" Grid.Column="1">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.514"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.516"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <ComboBox x:Name="prePhone" Margin="127,40,127,10" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="22"  >
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+
+
+
+        <Button x:Name="ToLoginPage" Content="יש לך משתמש? לחץ כאן" Grid.ColumnSpan="2" Margin="28,4,-71,19" Foreground="#FF5C6DFF" FontWeight="Bold" FontSize="20" FontStyle="Italic" Grid.Column="3" Click="ToLoginPage_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="txtSplitPhone" Text="-" FontSize="22" Margin="12,37,99,18" TextAlignment="Center" FontWeight="Bold" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="numPhoneAfterPreTxtBox"  FontSize="22" TextAlignment="Left" Margin="45,37,17,6" Background="#FFBBF1E4"  Foreground="#FF020202" BorderBrush="#FF708DE6" CaretBrush="#FF1F1F1F" BorderThickness="3" Grid.Row="3" Grid.Column="1" />
+
+        <Button x:Name="btnSend" Content="אישור" Margin="55,35,45,78" FontSize="25" FontWeight="Bold" OpacityMask="Black" Click="Send" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFBFFD96" Offset="0.287"/>
+                    <GradientStop Color="#FFF9F088" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+        <TextBlock Text="יש לבחור עיר מהרשימה" x:Name="errorCity" Margin="35,65,-39,68" TextAlignment="Center" FontWeight="Bold" Foreground="#FFD82222" FontSize="18" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Collapsed"/>
+    </Grid>
+
+</Page>

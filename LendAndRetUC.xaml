@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WpfLibrary.LendAndRetUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="325" d:DesignWidth="360">
+    <Grid>
+        <StackPanel>
+            <Image x:Name="imgBook" Width="160" Height="144"/>
+            <TextBlock x:Name="bookName" Text="חתול" FontSize="24" TextAlignment="Center" FontWeight="Bold" />
+            <TextBlock  Text=":תאריך השאלת הספר" FontSize="20" TextAlignment="Center" Foreground="#FF9253F1" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" />
+            <TextBlock x:Name="dateLendingBookTxt" Text="4/2/2024" FontSize="20" TextAlignment="Center" FontWeight="Bold" Foreground="#FF9253F1" />
+            <TextBlock Text=":תאריך החזרת הספר" FontSize="20" TextAlignment="Center" Foreground="#FFCE87DE" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" />
+            <TextBlock x:Name="dateReturnBookTxt" Text="4/2/2024" FontSize="20" TextAlignment="Center" FontWeight="Bold" Foreground="#FFCE87DE" />
+            <TextBlock x:Name="digitalBookTxt" Text="ספר דיגיטלי" FontSize="20" TextAlignment="Center" Foreground="#FFFF5F3B" FontWeight="Bold" TextDecorations="Underline" />
+
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,64 @@
+﻿<Page x:Class="WpfLibrary.LoginOrRegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary"
+      mc:Ignorable="d" 
+      d:DesignHeight="460" d:DesignWidth="800"
+      Title="LoginOrRegisterPage">
+
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/imgLogin2.jpg"/>
+        </Grid.Background>
+
+
+
+        <Button x:Name="register" Content="הרשמה" Margin="423,167,181,187" FontSize="36" FontWeight="Bold" Click="register_Click_1" BorderBrush="#FF926BBB" BorderThickness="2" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFC392D2" Offset="0.309"/>
+                    <GradientStop Color="#FFE8A1A1" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="login" Content="התחברות" Margin="170,167,426,188" FontSize="36" FontWeight="Bold" BorderBrush="#FFB3B184" BorderThickness="2" Click="login_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE4D075" Offset="0.365"/>
+                    <GradientStop Color="#FFDEFF99" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock Text="ברוכים הבאים" Margin="243,67,108,251" FontSize="48" FontWeight="Bold" Foreground="White" />
+        <TextBlock Text="הספרייה שלי" Foreground="White" TextAlignment="Center" FontSize="72" FontWeight="Bold" Margin="88,-11,108,332" RenderTransformOrigin="0.5,0.5" >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button x:Name="Exit" Content="יציאה" FontSize="36" Margin="616,316,29,63" BorderThickness="1" Click="Exit_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF51BCBF" Offset="0.292"/>
+                    <GradientStop Color="#FF8ED6ED" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Page>

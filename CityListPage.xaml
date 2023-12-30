@@ -1,0 +1,31 @@
+﻿<Page x:Class="WpfLibrary.CityListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CityListPage">
+
+    <Grid Background="#FFFFFFDA">
+        <TextBlock Text="רשימת הערים" FontSize="36" TextAlignment="Center" Margin="0,0,0,397" FontWeight="Bold" />
+
+        <ListView x:Name="myListView" Margin="240,58,240,0"  PreviewMouseRightButtonDown="ListView_PreviewMouseRightButtonDown" PreviewMouseLeftButtonUp="ListView_PreviewMouseLeftButtonUp"  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="שם העיר" DisplayMemberBinding="{Binding CityName}" />
+                    <!-- Add other columns as needed -->
+                </GridView>
+            </ListView.View>
+
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="עדכון העיר" Click="UpdateMenuItem_Click"/>
+                    <MenuItem Header="מחיקת העיר" Click="DeleteMenuItem_Click"/>
+
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+    </Grid>
+</Page>
