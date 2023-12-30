@@ -146,8 +146,15 @@ namespace WpfLibrary
         }
 
 
+        private async void ToSearchBookPage(object sender, MouseButtonEventArgs e)
+        {
+            GenreList genres = await api.SelectAllGeneres();
 
+            WritersList writers = await api.SelectAllWriters();
 
+            this.frame.Navigate(new FilterBooksPage(genres, writers));
+
+        }
 
     }
 }

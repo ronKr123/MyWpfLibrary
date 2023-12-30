@@ -43,6 +43,7 @@ namespace WpfLibrary
         public WritesList()
         {
             InitializeComponent();
+            LoadWritersAsync();
         }
 
         private void userListView_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)

@@ -25,6 +25,7 @@
             <!--<HamburgerMenu:HamburgerMenuItem Icon="Images/useresIcon.png"  Text="חיפוש ספר" MouseDoubleClick="findBook" />-->
             <!--<HamburgerMenu:HamburgerMenuItem Icon="Images/addingNewBookIcon.png"  Text="הוספת ספר חדש" MouseDoubleClick="addNewBookClick" />-->
             <HamburgerMenu:HamburgerMenuItem Icon="Images/lendingBooksIcon.png" Text="ההשאלות שלי" MouseDoubleClick="ToMyLendingsPage" />
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/lendingBooksIcon.png" Text="חיפוש ספר" MouseDoubleClick="ToSearchBookPage" />
             
         </HamburgerMenu:HamburgerMenu>
 

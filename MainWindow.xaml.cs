@@ -39,7 +39,7 @@ namespace WpfLibrary
 
         private async void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
-           api.CloseDB();
+           //api.CloseDB();
         }
 
 

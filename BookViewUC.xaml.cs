@@ -120,6 +120,7 @@ namespace WpfLibrary
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame frame = FrameHolder.MainFrameUser;
+            Frame frameManger = FrameHolder.MangerFrame;
 
             //עבירת הפריים למסך המציג את פרטי הספר
 
@@ -130,6 +131,10 @@ namespace WpfLibrary
             BookPage.PublicVariableBook = bList.Find(item => item.BookName.Equals(this.myBookName.Text));
             
             frame.Navigate(new BookPage());
+            if(frameManger != null)
+            {
+                frameManger.Navigate(new BookPage());
+            }
 
         }
 
