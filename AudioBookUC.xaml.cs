@@ -64,7 +64,11 @@ namespace WpfLibrary
 
                 Frame frame = FrameHolder.MainFrameUser;
                 Frame frameManger = FrameHolder.MangerFrame;
-                frame.Navigate(new AudioBookPage(digitalBook, audioFileName));
+                if (frame != null)
+                {
+                    frame.Navigate(new AudioBookPage(digitalBook, audioFileName));
+                }
+
                 if (frameManger != null)
                 {
                     frameManger.Navigate(new AudioBookPage(digitalBook, audioFileName));

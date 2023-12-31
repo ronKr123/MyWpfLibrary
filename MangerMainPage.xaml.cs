@@ -93,5 +93,21 @@ namespace WpfLibrary
 
         }
 
+        private async void ToNewLendingPage(object sender, MouseButtonEventArgs e)
+        {
+            BooksList books = await api.SelectAllBooks();
+            UsersList users = await api.SelectAllUsers();
+
+            this.frameManger.Navigate(new LendingBooksPage(books, users));
+
+        }
+
+        private async void ToReturnBookPage(object sender, MouseButtonEventArgs e)
+        {
+            LendingAndReturnsBooksList lendingAndReturns = await api.SelectAllLendingAndReturnsBooks();
+            this.frameManger.Navigate(new ReturnBooksPage(lendingAndReturns));
+
+        }
+
     }
 }

@@ -6,7 +6,7 @@
       xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
       xmlns:local="clr-namespace:WpfLibrary"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="MangerMainPage">
 
     <Grid>
@@ -32,6 +32,8 @@
             <HamburgerMenu:HamburgerMenuItem Icon="Images/writersIcon.png" Text="רשימת הסופרים" MouseDoubleClick="ToAllWritersPage" />
             <HamburgerMenu:HamburgerMenuItem Icon="Images/booksIcon.png" Text="רשימת הספרים" MouseDoubleClick="ToAllBooksPage" />
             <HamburgerMenu:HamburgerMenuItem Icon="Images/musicBooksIcon.png" Text="רשימת הספרים הדיגיטליים" MouseDoubleClick="ToAllAudioBooksPage" />
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/booksIcon.png" Text="השאלה חדשה" MouseDoubleClick="ToNewLendingPage" />
+            <HamburgerMenu:HamburgerMenuItem Icon="Images/booksIcon.png" Text="החזרה חדשה" MouseDoubleClick="ToReturnBookPage" />
         </HamburgerMenu:HamburgerMenu>
         
         

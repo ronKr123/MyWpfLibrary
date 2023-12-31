@@ -129,8 +129,12 @@ namespace WpfLibrary
             BooksList bList = await api.SelectAllBooks();
 
             BookPage.PublicVariableBook = bList.Find(item => item.BookName.Equals(this.myBookName.Text));
-            
-            frame.Navigate(new BookPage());
+
+            if (frame != null)
+            {
+                frame.Navigate(new BookPage());
+            }
+
             if(frameManger != null)
             {
                 frameManger.Navigate(new BookPage());
