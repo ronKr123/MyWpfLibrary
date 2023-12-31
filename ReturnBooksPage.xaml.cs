@@ -32,6 +32,7 @@ namespace WpfLibrary
 
         public LendingAndReturnsBooks LendingUser { get; set; }
 
+        public bool cond;
         public ReturnBooksPage(Model.LendingAndReturnsBooksList lendingAndReturnsBooks)
         {
             InitializeComponent();
@@ -54,6 +55,8 @@ namespace WpfLibrary
 
         private async void BooksNamesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(cond == false) 
+            { 
             BookSelected = this.BooksNamesComboBox.SelectedItem as string;
             BooksList booksL = await api.SelectAllBooks();
             int idBook = 0;
@@ -71,6 +74,7 @@ namespace WpfLibrary
             }
 
             this.datePicker.Visibility = Visibility.Visible;
+            this.txtChooseDate.Visibility = Visibility.Visible;
             this.btnSend.Visibility = Visibility.Visible;
 
             // get lending date of book :
@@ -84,9 +88,10 @@ namespace WpfLibrary
                 }
             }
 
-            if (dateLending != new DateTime(2001, 1, 1))
-            {
-                this.datePicker.DisplayDateStart = dateLending;
+             if (dateLending != new DateTime(2001, 1, 1))
+                {
+                    this.datePicker.DisplayDateStart = dateLending;
+                }
             }
 
         }
@@ -94,34 +99,40 @@ namespace WpfLibrary
 
         private void AllUsersNamesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string userNameSelected = this.allUsersNamesComboBox.SelectedItem as string;
-            UserSelected = userNameSelected;
-
-            List<string> booksLendOfUser = new List<string>();
-            foreach(LendingAndReturnsBooks lending in GetUsersLends)
+            if (cond == false)
             {
-                if(lending.UserCode.UserName.Equals(userNameSelected) && lending.DateOfReturn == new DateTime(2001, 1, 1))
+                string userNameSelected = this.allUsersNamesComboBox.SelectedItem as string;
+                UserSelected = userNameSelected;
+
+                List<string> booksLendOfUser = new List<string>();
+                foreach (LendingAndReturnsBooks lending in GetUsersLends)
                 {
-                    booksLendOfUser.Add(lending.BookCode.BookName);
+                    if (lending.UserCode.UserName.Equals(userNameSelected) && lending.DateOfReturn == new DateTime(2001, 1, 1))
+                    {
+                        booksLendOfUser.Add(lending.BookCode.BookName);
+                    }
                 }
+                this.BooksNamesComboBox.Visibility = Visibility.Visible;
+                this.BooksNamesComboBox.ItemsSource = booksLendOfUser;
+                this.txtChooseBook.Visibility = Visibility.Visible;
             }
-            this.BooksNamesComboBox.Visibility = Visibility.Visible;
-            this.BooksNamesComboBox.ItemsSource = booksLendOfUser;
         }
 
 
         private void InitComboBoxUsersLend()
         {
-            List<string> usersNamesLends = new List<string>();
+            HashSet<string> uniqueUserNames = new HashSet<string>(); // Use HashSet to ensure uniqueness
             LendingAndReturnsBooksList lendings = GetUsersLends;
-            foreach(LendingAndReturnsBooks lending in lendings)
+
+            foreach (LendingAndReturnsBooks lending in lendings)
             {
-                if(lending.DateOfReturn == new DateTime(2001, 1 , 1))
+                if (lending.DateOfReturn == new DateTime(2001, 1, 1))
                 {
-                    usersNamesLends.Add(lending.UserCode.UserName);
+                    uniqueUserNames.Add(lending.UserCode.UserName);
                 }
             }
-            this.allUsersNamesComboBox.ItemsSource = usersNamesLends;
+
+            this.allUsersNamesComboBox.ItemsSource = uniqueUserNames.ToList();
         }
 
 
@@ -132,6 +143,7 @@ namespace WpfLibrary
 
             if (selectedDate.HasValue)
             {
+                cond = true;
                 LendingAndReturnsBooks returnUserBook = LendingUser;
                 returnUserBook.DateOfReturn = (DateTime)selectedDate;
                 int x = await api.UpdateALendingAndReturnBook(returnUserBook);
@@ -148,7 +160,8 @@ namespace WpfLibrary
                     this.datePicker.Text = "";
                     this.allUsersNamesComboBox.SelectedItem = null;
                     this.BooksNamesComboBox.SelectedItem = null;
-
+                    InitComboBoxUsersLend();
+                    cond = false;
                 }
 
             }

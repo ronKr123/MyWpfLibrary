@@ -49,7 +49,7 @@ namespace WpfLibrary
             List<string> writersNames = new List<string>();
             foreach (Writers writer in writers)
             {
-                writersNames.Add(writer.FirstName + writer.LastName);
+                writersNames.Add(writer.FirstName + " " + writer.LastName);
             }
             this.writerComboBox.ItemsSource = writersNames;
 
@@ -68,39 +68,15 @@ namespace WpfLibrary
             string writerFullName = this.writerComboBox.SelectedItem as string;
             string genreName = this.genreComboBox.SelectedItem as string;
 
-            int codeWriter = 0, codeGenre = 0;
-            GenreList genres = GetGenres;
-            WritersList writers = GetWriters;
-            foreach(Genre g in genres)
-            {
-                if (g.GenreName.Equals(genreName))
-                {
-                    codeGenre = g.Id;
-                }
-            }
+            int codeWriter = GetWriterCode(writerFullName);
+            int codeGenre = GetGenreCode(genreName);
 
-            foreach (Writers w in writers)
+            Filter filterSql = new Filter
             {
-                string wFullName = w.FirstName + w.LastName;
-                if (wFullName.Equals(writerFullName))
-                {
-                    codeWriter = w.Id;
-                }
-            }
-
-            Filter filterSql = new Filter() { };
-            if(bookTxtSearch != "")
-            {
-                filterSql.BookNameTxt = bookTxtSearch;
-            }
-            if(codeGenre != 0)
-            {
-                filterSql.GenreBookCode = codeGenre;
-            }
-            if(codeWriter != 0)
-            {
-                filterSql.WriterBookCode = codeWriter;
-            }
+                BookNameTxt = bookTxtSearch,
+                GenreBookCode = codeGenre,
+                WriterBookCode = codeWriter
+            };
 
             string sqlSentence = filterSql.BuildFilter();
             BooksList booksList = await api.SelectAllBooksWithFilter(sqlSentence);
@@ -113,6 +89,37 @@ namespace WpfLibrary
 
         }
 
+        private int GetWriterCode(string writerFullName)
+        {
+            if (writerFullName == null)
+                return 0;
+
+            foreach (Writers w in GetWriters)
+            {
+                if ((w.FirstName + " " + w.LastName).Equals(writerFullName))
+                {
+                    return w.Id;
+                }
+            }
+            return 0;
+        }
+
+        private int GetGenreCode(string genreName)
+        {
+            if (genreName == null)
+                return 0;
+
+            foreach (Genre g in GetGenres)
+            {
+                if (g.GenreName.Equals(genreName))
+                {
+                    return g.Id;
+                }
+            }
+            return 0;
+        }
+
+
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -122,24 +129,21 @@ namespace WpfLibrary
         {
             DigitalBooksList digitalBooks = await api.SelectAllDigitalBooks();
 
-            RowDefinition gridRow;
-            for (int i = 0; i < (booksList.Count / 2) + 1; i++)
+            if (booksList.Count > 0)
             {
-                gridRow = new RowDefinition();
-                gridRow.Height = new GridLength(350);
-                g.RowDefinitions.Add(gridRow);
+                int numRows = (int)Math.Ceiling((double)booksList.Count / 2);
+                for (int i = 0; i < numRows; i++)
+                {
+                    g.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(350) });
+                }
+
+                for (int i = 0; i < 2; i++)
+                {
+                    g.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(350) });
+                }
             }
 
-            ColumnDefinition gridCol;
-            for (int i = 0; i < 2; i++)
-            {
-                gridCol = new ColumnDefinition();
-                gridCol.Width = new GridLength(350);
-                g.ColumnDefinitions.Add(gridCol);
-            }
-
-            int k = 0, j = 0;
-
+            int j = 0, k = 0;
             foreach (Books book in booksList)
             {
                 BookViewUC.BookParameter = book;
@@ -147,13 +151,10 @@ namespace WpfLibrary
 
                 BookViewUC bookViewUC = new BookViewUC();
                 bookViewUC.Margin = new Thickness(7);
-                
-                if (g.Children.Cast<UIElement>().FirstOrDefault(e => Grid.GetRow(e) == j && Grid.GetColumn(e) == k) == null)
-                {
-                    Grid.SetRow(bookViewUC, j);
-                    Grid.SetColumn(bookViewUC, k);
-                    g.Children.Add(bookViewUC);
-                }
+
+                Grid.SetRow(bookViewUC, j);
+                Grid.SetColumn(bookViewUC, k);
+                g.Children.Add(bookViewUC);
 
                 j++;
 
@@ -162,8 +163,8 @@ namespace WpfLibrary
                     k++;
                     j = 0;
                 }
-
             }
+
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
